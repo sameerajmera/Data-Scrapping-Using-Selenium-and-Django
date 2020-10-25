@@ -36,7 +36,7 @@ python manage.py runserver
 
 # REST API
 
-The REST API to the example APP of user activity period is described below
+The REST API is described below.
 
 ## Step to Consume APIs on Postman
 
@@ -44,9 +44,6 @@ The REST API to the example APP of user activity period is described below
 Enter the below url by selcting method = GET in postman tab
 ```
 GET http://localhost:8000/
-```
-### Response
- The below response is of json type
 ```
 Downlodable CSV File will be generate which will contain all the infornmation regarding data
 
