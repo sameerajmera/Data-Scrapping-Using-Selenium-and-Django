@@ -6,10 +6,14 @@ from webdriver_manager.chrome import ChromeDriverManager
 import time
 import pandas as pd
 
+import pymongo as pm
+from gridfs import GridFS as gfs
+import os,sys,pickle
+
 def scrapFunct():
 #code for scrapping data using beautifulsoup and selenium web driver
     driver = webdriver.Chrome(ChromeDriverManager().install())
-
+    driver.implicitly_wait(10)
     driver.get("https://dsscic.nic.in/cause-list-report-web/registry_cause_list/")
     driver.find_element_by_xpath("//input[@value='appCom']").click()
     driver.find_element_by_xpath("//select[@name='commissionname']/option[text()='Yashvardhan Kumar Sinha']").click()
@@ -36,4 +40,13 @@ def scrapFunct():
     df = df.replace({'\n': ''}, regex=True)
     df = df.replace({'\t': ''}, regex=True)
     df = df.reset_index().drop('index',axis=1)
+
+    #MongoDB Data Connection and dumping dataframe
+    if not df.empty:
+        client = pm.MongoClient(port=27017)
+        db = client["causeListreport"]
+        table = db["hearingSchedule"]
+        df.reset_index(inplace=True)
+        data_dict = df.to_dict("records")
+        table.insert({"index":"Records","data":data_dict},check_keys=False)
     return df
