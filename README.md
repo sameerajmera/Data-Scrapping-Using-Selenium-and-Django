@@ -10,6 +10,7 @@ Project requires:
 - Python (>= 3.6)
 - Django (>= 3.0)
 - selenium
+
 <b> Repository Cloning Using Gitbash </b>
 
 To fetch the source code from the git to your local machine,we need to run the below mentioned command git bash
