@@ -5,10 +5,8 @@ from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 import time
 import pandas as pd
-
 import pymongo as pm
-from gridfs import GridFS as gfs
-import os,sys,pickle
+
 
 def scrapFunct():
 #code for scrapping data using beautifulsoup and selenium web driver
