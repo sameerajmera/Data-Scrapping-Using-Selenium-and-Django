@@ -1,5 +1,3 @@
-# assignment-scrapping
-
 # Scrapping Data
 This Project aims at scrapping data from website using python, selenium and mongodb. You need to install mongodb in system. In this project mongodb collections will be generate and other part is csv file will get downloaded. I completed this project by using python's selenium and django.
 # Requirements to Run the Application on Localhost
